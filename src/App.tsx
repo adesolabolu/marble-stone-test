@@ -10,6 +10,7 @@ import SplitScroll from '@/sections/SplitScroll'
 import Works from '@/sections/Works'
 import ImageBreak from '@/sections/ImageBreak'
 import Services from '@/sections/Services'
+import Surfaces from '@/sections/Surfaces'
 import FAQ from '@/sections/FAQ'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
@@ -28,6 +29,7 @@ function Home() {
       <Works />
       <ImageBreak />
       <Services />
+      <Surfaces />
       <TestimonialsSection />
       <FAQ />
       <Contact />
