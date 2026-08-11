@@ -16,10 +16,10 @@ export default function Footer() {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span className="font-display text-[14vw] font-extrabold uppercase leading-[0.85] tracking-tighter transition-colors duration-500 group-hover:text-[#0F172A] md:text-[11vw]">
+        <span className="font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter transition-colors duration-500 group-hover:text-[#0F172A] md:text-[11vw]">
           Let's
         </span>
-        <span className="block font-display text-[14vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#0F172A] transition-colors duration-500 group-hover:text-[#1A1D20] md:text-[11vw]">
+        <span className="block font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#0F172A] transition-colors duration-500 group-hover:text-[#1A1D20] md:text-[11vw]">
           Restore ↗
         </span>
       </motion.a>

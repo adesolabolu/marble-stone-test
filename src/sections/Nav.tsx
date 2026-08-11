@@ -92,7 +92,7 @@ export default function Nav() {
                   <motion.a
                     href={l.href}
                     onClick={(e) => go(e, l.href)}
-                    className="block py-4 font-display text-[11vw] sm:text-5xl font-extrabold uppercase tracking-tighter"
+                    className="block py-4 font-display text-[9vw] sm:text-5xl font-extrabold uppercase tracking-tighter"
                     initial={{ y: '110%' }}
                     animate={{ y: '0%' }}
                     exit={{ y: '110%' }}

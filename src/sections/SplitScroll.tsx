@@ -61,7 +61,7 @@ export default function SplitScroll() {
           <p className="mb-4 font-mono2 text-[11px] uppercase tracking-[0.4em] text-[#F8F9FA]">
             ( 2024 — 2026 )
           </p>
-          <h2 className="text-center font-display text-[13vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#F8F9FA] md:text-[9vw]">
+          <h2 className="text-center font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#F8F9FA] md:text-[9vw]">
             Selected
             <br />
             <span>Works</span>

@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section id="contact" className="px-6 py-24 md:px-10 md:py-36 border-t border-[#1A1D20]/10 bg-[#F8F9FA]">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-6 font-display text-[13vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#1A1D20] sm:text-5xl md:text-6xl">
+        <h2 className="mb-6 font-display text-[10vw] sm:text-5xl md:text-7xl font-extrabold uppercase leading-[0.85] tracking-tighter text-[#1A1D20]">
           Contact <span className="text-[#0F172A]">Us</span>
         </h2>
         <p className="mb-16 font-mono2 text-xs md:text-sm uppercase tracking-[0.1em] text-[#1A1D20]">

@@ -27,7 +27,7 @@ export default function ProjectPage() {
         </Link>
 
         <motion.h1
-          className="mt-8 font-display text-[11vw] font-extrabold uppercase leading-[0.9] tracking-tighter md:text-[7vw]"
+          className="mt-8 font-display text-[9vw] font-extrabold uppercase leading-[0.9] tracking-tighter md:text-[7vw]"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -105,7 +105,7 @@ export default function ProjectPage() {
         <p className="font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#1A1D20]">
           Next project
         </p>
-        <span className="mt-4 block font-display text-[10vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#0F172A] md:text-[6vw]">
+        <span className="mt-4 block font-display text-[9vw] font-extrabold uppercase leading-[0.9] tracking-tighter transition-colors duration-500 group-hover:text-[#0F172A] md:text-[6vw]">
           {next.title} →
         </span>
       </Link>

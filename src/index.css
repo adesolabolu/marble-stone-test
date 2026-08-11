@@ -12,7 +12,7 @@
 
 html {
   background: var(--ink);
-}
+  }
 
 html.lenis,
 html.lenis body {
@@ -28,8 +28,7 @@ body {
   color: var(--paper);
   font-family: 'Space Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+  }
 
 @media (hover: hover) and (pointer: fine) {
   body {
@@ -119,3 +118,6 @@ body {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+#root {
+  }
