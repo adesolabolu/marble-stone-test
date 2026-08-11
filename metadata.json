@@ -1,0 +1,8 @@
+{
+  "name": "lithos-stone-restoration",
+  "description": "LITHOS — Stone & Marble Restoration Template",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
