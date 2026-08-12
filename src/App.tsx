@@ -11,11 +11,11 @@ import Surfaces from '@/sections/Surfaces'
 import FAQ from '@/sections/FAQ'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
-import FloatingActions from '@/components/FloatingActions'
 import WorksPage from '@/pages/WorksPage'
 import ProjectPage from '@/pages/ProjectPage'
 
 import TestimonialsSection from '@/components/ui/testimonial-v2'
+import FloatingWidgets from '@/components/FloatingWidgets'
 
 function Home() {
   return (
@@ -77,6 +77,7 @@ export default function App() {
   return (
     <div className="grain relative min-h-screen bg-[#F8F9FA] text-[#1A1D20]">
       <Cursor />
+      <FloatingWidgets />
       <Nav />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
@@ -85,7 +86,6 @@ export default function App() {
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
-      <FloatingActions />
     </div>
   )
 }

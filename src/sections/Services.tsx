@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Sparkles, Landmark, FlaskConical, Shield, Droplets } from 'lucide-react'
 
 const services = [
   {
@@ -6,30 +7,35 @@ const services = [
     name: 'Stone Polishing',
     desc: 'Restoring high-gloss, factory-level shine to dull and scratched marble, granite, and terrazzo floors.',
     tags: ['Diamond Grinding', 'Crystallization', 'Scratch Removal'],
+    icon: Sparkles,
   },
   {
     n: '02',
     name: 'Historic Preservation',
     desc: 'Gentle, period-accurate cleaning and repair for heritage masonry, statues, and facades.',
     tags: ['Poultice Cleaning', 'Micro-Abrasion', 'Lime Mortar'],
+    icon: Landmark,
   },
   {
     n: '03',
     name: 'Stain & Etch Repair',
     desc: 'Extracting deep-set organic stains and repairing acidic burns on delicate natural stone surfaces.',
     tags: ['Etch Removal', 'Color Matching', 'Epoxy Fills'],
+    icon: FlaskConical,
   },
   {
     n: '04',
     name: 'Sealing & Protection',
     desc: 'Applying premium impregnating sealers to protect porous stone from future water and oil-based damage.',
     tags: ['Impregnating Sealers', 'Color Enhancers', 'Anti-Slip Treatments'],
+    icon: Shield,
   },
   {
     n: '05',
     name: 'Deep Cleaning & Stain Removal',
     desc: 'Specialized deep cleaning processes to remove tough stains, grime, and buildup from all stone surfaces.',
     tags: ['Steam Cleaning', 'Poultice Application', 'Grime Extraction'],
+    icon: Droplets,
   },
 ]
 
@@ -58,18 +64,26 @@ export default function Services() {
           >
             {/* hover fill */}
             <div className="absolute inset-0 origin-bottom scale-y-0 bg-[#1A1D20] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100" />
+            
             <div className="relative grid gap-4 py-8 transition-colors duration-500 group-hover:text-[#F8F9FA] md:grid-cols-[4rem_1fr_1.2fr] md:items-center md:gap-8 md:py-12">
-              <span className="font-mono2 text-[11px] tracking-[0.2em] text-[#1A1D20] transition-colors duration-500 group-hover:text-[#0F172A]">
+              <span className="font-mono2 text-[11px] tracking-[0.2em] text-[#1A1D20] transition-colors duration-500 group-hover:text-[#F8F9FA]">
                 ({s.n})
               </span>
-              <h3 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">
-                {s.name}
-              </h3>
+              
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#1A1D20]/20 bg-transparent transition-colors duration-500 group-hover:border-[#F8F9FA]/30">
+                  <s.icon className="h-5 w-5 text-[#1A1D20] transition-colors duration-500 group-hover:text-[#F8F9FA]" />
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight md:text-4xl lg:text-5xl">
+                  {s.name}
+                </h3>
+              </div>
+              
               <div>
                 <p className="max-w-md text-sm leading-relaxed text-[#1A1D20] transition-colors duration-500 group-hover:text-[#F8F9FA]/70">
                   {s.desc}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {s.tags.map((t) => (
                     <span
                       key={t}
