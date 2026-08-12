@@ -65,17 +65,64 @@ export default function Contact() {
                   className="rounded-none border-0 border-b border-[#1A1D20]/20 bg-transparent px-0 py-3 font-sans text-base text-[#1A1D20] placeholder:text-[#1A1D20]/20 focus-visible:border-[#0F172A] focus-visible:ring-0 focus-visible:outline-none"
                 />
               </div>
+              <div className="space-y-4">
+                <Label htmlFor="phone" className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">
+                  Phone Number
+                </Label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="(555) 123-4567"
+                  className="rounded-none border-0 border-b border-[#1A1D20]/20 bg-transparent px-0 py-3 font-sans text-base text-[#1A1D20] placeholder:text-[#1A1D20]/20 focus-visible:border-[#0F172A] focus-visible:ring-0 focus-visible:outline-none"
+                />
+              </div>
+              <div className="space-y-4">
+                <Label htmlFor="inquiryType" className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">
+                  Inquiry Type
+                </Label>
+                <select
+                  id="inquiryType"
+                  required
+                  defaultValue=""
+                  className="w-full rounded-none border-0 border-b border-[#1A1D20]/20 bg-transparent px-0 py-3 font-sans text-base text-[#1A1D20] focus-visible:border-[#0F172A] focus-visible:ring-0 focus-visible:outline-none"
+                >
+                  <option value="" disabled>Select an inquiry type...</option>
+                  <option value="restoration">Restoration</option>
+                  <option value="maintenance">Maintenance</option>
+                  <option value="cleaning">Deep Cleaning & Stain Removal</option>
+                  <option value="quote">General Quote</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <Label className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">
+                Surface Type (Select all that apply)
+              </Label>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 pt-2">
+                {['Marble', 'Granite', 'Terrazzo', 'Limestone', 'Travertine', 'Onyx'].map((surface) => (
+                  <label key={surface} className="flex items-center gap-3 cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      value={surface}
+                      className="peer size-4 appearance-none border border-[#1A1D20]/30 rounded-sm checked:bg-[#0F172A] checked:border-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#0F172A]/20 transition-all"
+                    />
+                    <span className="font-sans text-sm text-[#1A1D20] peer-checked:font-semibold">
+                      {surface}
+                    </span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             <div className="space-y-4">
               <Label htmlFor="details" className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">
-                Project Details
+                Project Details (Optional)
               </Label>
               <Textarea
                 id="details"
-                required
-                placeholder="What surface needs restoration?"
-                className="min-h-[140px] resize-none rounded-none border-0 border-b border-[#1A1D20]/20 bg-transparent px-0 py-3 font-sans text-base text-[#1A1D20] placeholder:text-[#1A1D20]/20 focus-visible:border-[#0F172A] focus-visible:ring-0 focus-visible:outline-none"
+                placeholder="Tell us a little bit more about your project..."
+                className="min-h-[120px] resize-none rounded-none border-0 border-b border-[#1A1D20]/20 bg-transparent px-0 py-3 font-sans text-base text-[#1A1D20] placeholder:text-[#1A1D20]/20 focus-visible:border-[#0F172A] focus-visible:ring-0 focus-visible:outline-none"
               />
             </div>
 

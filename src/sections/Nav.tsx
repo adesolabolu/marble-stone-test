@@ -44,7 +44,7 @@ export default function Nav() {
             onClick={(e) => go(e, '#top')}
             className="font-display text-lg font-extrabold tracking-tight"
           >
-            LITHOS<span className="align-super text-[10px]">®</span>
+            LITHOS
           </a>
           <div className="hidden items-center gap-8 font-mono2 font-bold text-[11px] uppercase tracking-[0.25em] md:flex">
             {links.map((l) => (

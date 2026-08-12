@@ -5,10 +5,7 @@ import Cursor from '@/sections/Cursor'
 import Nav from '@/sections/Nav'
 import Hero from '@/sections/Hero'
 import Marquee from '@/sections/Marquee'
-import Manifesto from '@/sections/Manifesto'
 import SplitScroll from '@/sections/SplitScroll'
-import Works from '@/sections/Works'
-import ImageBreak from '@/sections/ImageBreak'
 import Services from '@/sections/Services'
 import Surfaces from '@/sections/Surfaces'
 import FAQ from '@/sections/FAQ'
@@ -24,10 +21,7 @@ function Home() {
     <main>
       <Hero />
       <Marquee />
-      <Manifesto />
       <SplitScroll />
-      <Works />
-      <ImageBreak />
       <Services />
       <Surfaces />
       <TestimonialsSection />

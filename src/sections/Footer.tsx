@@ -52,7 +52,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 flex items-center justify-between font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">
-        <span>© 2026 LITHOS® Stone</span>
+        <span>© 2026 LITHOS Stone</span>
         <a
           href="#top"
           data-hover

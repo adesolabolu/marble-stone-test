@@ -37,11 +37,7 @@ export default function Hero() {
               {line1.map((ch, i) => (
                 <motion.span
                   key={i}
-                  className={
-                    ch === '®'
-                      ? 'inline-block align-top text-[0.3em] leading-[1.6]'
-                      : 'inline-block'
-                  }
+                  className="inline-block"
                   custom={i}
                   variants={letterAnim}
                   initial="hidden"
@@ -68,17 +64,40 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <motion.p
-            className="max-w-md text-sm leading-relaxed text-[#1A1D20] md:text-base"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            We restore, protect, and maintain architectural stone for properties
-            that demand perfection. Marble, granite, terrazzo, and limestone —
-            revived with mastery and care.
-          </motion.p>
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          <div className="flex max-w-md flex-col gap-8">
+            <motion.p
+              className="text-sm leading-relaxed text-[#1A1D20] md:text-base"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
+              We restore, protect, and maintain architectural stone for properties
+              that demand perfection. Marble, granite, terrazzo, and limestone —
+              revived with mastery and care.
+            </motion.p>
+            
+            <motion.div
+              className="flex flex-wrap items-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <a 
+                href="#contact" 
+                className="inline-flex items-center justify-center bg-[#1A1D20] px-6 py-4 font-mono2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#F8F9FA] transition-colors hover:bg-[#0F172A]"
+              >
+                Get a free quote
+              </a>
+              <a 
+                href="#services" 
+                className="inline-flex items-center justify-center border border-[#1A1D20]/20 px-6 py-4 font-mono2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#1A1D20] transition-colors hover:border-[#1A1D20]"
+              >
+                Explore services
+              </a>
+            </motion.div>
+          </div>
+
           <motion.div
             className="flex items-center gap-10 font-mono2 font-bold text-[11px] uppercase tracking-[0.25em] text-[#1A1D20]"
             initial={{ opacity: 0 }}

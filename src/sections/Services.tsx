@@ -25,6 +25,12 @@ const services = [
     desc: 'Applying premium impregnating sealers to protect porous stone from future water and oil-based damage.',
     tags: ['Impregnating Sealers', 'Color Enhancers', 'Anti-Slip Treatments'],
   },
+  {
+    n: '05',
+    name: 'Deep Cleaning & Stain Removal',
+    desc: 'Specialized deep cleaning processes to remove tough stains, grime, and buildup from all stone surfaces.',
+    tags: ['Steam Cleaning', 'Poultice Application', 'Grime Extraction'],
+  },
 ]
 
 export default function Services() {
