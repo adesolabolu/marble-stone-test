@@ -8,11 +8,14 @@ export default function Cursor() {
   const springY = useSpring(y, { stiffness: 500, damping: 40, mass: 0.6 })
   const [variant, setVariant] = useState<'default' | 'hover' | 'view'>('default')
   const [visible, setVisible] = useState(false)
-  const [fine, setFine] = useState(false)
+  const [fine] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      : false
+  )
 
   useEffect(() => {
     const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
-    setFine(mq.matches)
     if (!mq.matches) return
 
     const move = (e: MouseEvent) => {
@@ -44,7 +47,7 @@ export default function Cursor() {
       style={{ x: springX, y: springY, opacity: visible ? 1 : 0 }}
     >
       <motion.div
-        className="flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#F8F9FA] mix-blend-difference"
+        className="flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#1A1D20] text-[#F8F9FA] shadow-lg"
         animate={{
           width: variant === 'view' ? 96 : variant === 'hover' ? 56 : 14,
           height: variant === 'view' ? 96 : variant === 'hover' ? 56 : 14,
@@ -52,7 +55,7 @@ export default function Cursor() {
         transition={{ type: 'spring', stiffness: 400, damping: 28 }}
       >
         {variant === 'view' && (
-          <span className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-black">
+          <span className="font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#F8F9FA]">
             View
           </span>
         )}

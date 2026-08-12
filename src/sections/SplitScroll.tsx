@@ -40,7 +40,7 @@ export default function SplitScroll() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.92])
 
   return (
-    <section ref={ref} className="relative h-[280vh]">
+    <section id="works" ref={ref} className="relative h-[280vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#F8F9FA]">
         {/* image columns */}
         <div className="grid h-full w-full grid-cols-2 items-center gap-[2vw] px-[2vw] md:grid-cols-[1fr_1.2fr_1fr] md:gap-[3vh] md:px-[6vw]">
@@ -54,9 +54,6 @@ export default function SplitScroll() {
           style={{ scale }}
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center mix-blend-difference will-change-transform transform-gpu backface-hidden"
         >
-          <p className="mb-4 font-mono2 text-[11px] uppercase tracking-[0.4em] text-[#F8F9FA]">
-            ( 2024 — 2026 )
-          </p>
           <h2 className="text-center font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#F8F9FA] md:text-[9vw]">
             Selected
             <br />

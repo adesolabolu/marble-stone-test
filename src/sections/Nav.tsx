@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Phone, Instagram } from 'lucide-react'
 
 const links = [
+  { label: 'Home', href: '#top' },
   { label: 'Works', href: '#works' },
-  { label: 'Studio', href: '#studio' },
   { label: 'Services', href: '#services' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
@@ -53,7 +54,26 @@ export default function Nav() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 md:gap-6">
+            <a
+              href="tel:+15551234567"
+              aria-label="Call Us"
+              data-hover
+              className="flex items-center justify-center transition-opacity hover:opacity-70"
+            >
+              <Phone className="h-4 w-4 md:h-[18px] md:w-[18px]" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              data-hover
+              className="flex items-center justify-center transition-opacity hover:opacity-70"
+            >
+              <Instagram className="h-4 w-4 md:h-[18px] md:w-[18px]" />
+            </a>
+
             {/* mobile toggle */}
             <button
               data-hover

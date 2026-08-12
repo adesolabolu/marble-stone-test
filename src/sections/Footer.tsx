@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Instagram, Facebook } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -41,12 +42,27 @@ export default function Footer() {
         </div>
         <div>
           <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">Socials</p>
-          <div className="mt-2 flex gap-4 text-sm text-[#1A1D20]">
-            {['IG', 'LI', 'PIN', 'FB'].map((s) => (
-              <a key={s} href="#contact" onClick={(e) => e.preventDefault()} data-hover className="link-sweep">
-                {s}
-              </a>
-            ))}
+          <div className="mt-3 flex items-center gap-5 text-[#1A1D20]">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              data-hover
+              className="transition-transform duration-300 hover:scale-110 hover:text-[#0F172A]"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              data-hover
+              className="transition-transform duration-300 hover:scale-110 hover:text-[#0F172A]"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>

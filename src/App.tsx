@@ -11,6 +11,7 @@ import Surfaces from '@/sections/Surfaces'
 import FAQ from '@/sections/FAQ'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
+import FloatingActions from '@/components/FloatingActions'
 import WorksPage from '@/pages/WorksPage'
 import ProjectPage from '@/pages/ProjectPage'
 
@@ -84,6 +85,7 @@ export default function App() {
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
+      <FloatingActions />
     </div>
   )
 }
