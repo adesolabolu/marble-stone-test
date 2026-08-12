@@ -31,8 +31,8 @@ export default function Hero() {
           ( Artisans of natural stone — est. 2008 )
         </motion.p>
 
-        <div className="select-none">
-          <h1 className="font-display font-extrabold leading-[0.82] tracking-tighter">
+        <div className="select-none py-2">
+          <h1 className="font-display font-extrabold leading-[0.82] tracking-tighter origin-bottom scale-y-[1.15] md:scale-y-100">
             <span className="block overflow-hidden whitespace-nowrap pr-[2vw] text-[12vw] md:text-[12vw]">
               {line1.map((ch, i) => (
                 <motion.span

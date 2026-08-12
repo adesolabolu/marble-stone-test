@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Instagram, Facebook } from 'lucide-react'
+import { Instagram, Facebook, ArrowUpRight } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -20,8 +20,8 @@ export default function Footer() {
         <span className="font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter transition-colors duration-500 group-hover:text-[#0F172A] md:text-[11vw]">
           Let's
         </span>
-        <span className="block font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#0F172A] transition-colors duration-500 group-hover:text-[#1A1D20] md:text-[11vw]">
-          Restore ↗
+        <span className="flex items-center gap-4 font-display text-[11vw] font-extrabold uppercase leading-[0.85] tracking-tighter text-[#0F172A] transition-colors duration-500 group-hover:text-[#1A1D20] md:text-[11vw]">
+          Restore <ArrowUpRight className="h-[0.8em] w-[0.8em] stroke-[3]" />
         </span>
       </motion.a>
 
