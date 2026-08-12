@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router'
 import { motion } from 'framer-motion'
 import { getProject, nextProject } from '@/data/content'
+import Meta from '@/components/Meta'
 
 export default function ProjectPage() {
   const { slug } = useParams()
@@ -9,6 +10,7 @@ export default function ProjectPage() {
   if (!project) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center px-6">
+        <Meta title="Project Not Found | LITHOS STONE" />
         <h1 className="font-display text-4xl font-extrabold uppercase">Project not found</h1>
         <Link to="/works" data-hover className="link-sweep mt-6 font-mono2 text-xs uppercase tracking-[0.3em] text-[#0F172A]">
           ← All works
@@ -21,6 +23,11 @@ export default function ProjectPage() {
 
   return (
     <main className="pt-32 md:pt-40">
+      <Meta 
+        title={`${project.title} | LITHOS STONE`}
+        description={project.description[0]}
+        image={project.img}
+      />
       <div className="px-6 md:px-10">
         <Link to="/works" data-hover className="link-sweep font-mono2 text-[11px] uppercase tracking-[0.3em] text-[#1A1D20]">
           ← All works
@@ -66,7 +73,7 @@ export default function ProjectPage() {
         animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
         transition={{ delay: 0.2, duration: 1, ease: [0.76, 0, 0.24, 1] }}
       >
-        <img src={project.img} alt={project.title} className="h-full w-full object-cover" />
+        <motion.img layoutId={`project-img-${project.slug}`} src={project.img} alt={project.title} className="h-full w-full object-cover will-change-transform" />
       </motion.div>
 
       <div className="grid gap-10 px-6 py-20 md:grid-cols-[1fr_2fr] md:px-10 md:py-28">

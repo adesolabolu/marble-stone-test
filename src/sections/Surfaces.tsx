@@ -90,7 +90,7 @@ export default function Surfaces() {
         <AnimatePresence>
           {active !== null && (
             <motion.div
-              className="pointer-events-none absolute left-0 top-0 z-20 hidden md:block"
+              className="pointer-events-none absolute left-0 top-0 z-20 hidden md:block will-change-transform"
               style={{ x: springX, y: springY }}
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -99,14 +99,14 @@ export default function Surfaces() {
             >
               <motion.div
                 style={{ rotate }}
-                className="relative aspect-[3/2] w-[26vw] -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                className="relative aspect-[3/2] w-[26vw] -translate-x-1/2 -translate-y-1/2 overflow-hidden will-change-transform"
               >
                 {surfacesData.map((s, i) => (
                   <motion.img
                     key={s.title}
                     src={s.img}
                     alt={s.title}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover will-change-[transform,opacity]"
                     initial={false}
                     animate={{
                       opacity: active === i ? 1 : 0,

@@ -1,10 +1,15 @@
 import { Link } from 'react-router'
 import { motion } from 'framer-motion'
 import { projects } from '@/data/content'
+import Meta from '@/components/Meta'
 
 export default function WorksPage() {
   return (
     <main className="px-6 pb-28 pt-32 md:px-10 md:pt-40">
+      <Meta 
+        title="Works | LITHOS STONE" 
+        description="Explore our portfolio of restored and protected architectural stone projects." 
+      />
       <div className="mb-14 flex items-end justify-between">
         <div>
           <p className="mb-6 font-mono2 text-[11px] uppercase tracking-[0.35em] text-[#0F172A]">
@@ -27,14 +32,15 @@ export default function WorksPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ delay: (i % 2) * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className={i % 2 === 1 ? 'md:mt-24' : ''}
+            className={`${i % 2 === 1 ? 'md:mt-24' : ''} will-change-[transform,opacity]`}
           >
             <Link to={`/works/${p.slug}`} data-cursor="view" className="group block">
               <div className="relative aspect-[3/2] overflow-hidden">
-                <img
+                <motion.img
+                  layoutId={`project-img-${p.slug}`}
                   src={p.img}
                   alt={p.title}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 will-change-transform"
                 />
                 <span className="absolute left-4 top-4 bg-[#F8F9FA]/80 px-3 py-1 font-mono2 text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm">
                   {p.category}

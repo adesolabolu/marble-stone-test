@@ -16,6 +16,7 @@ import ProjectPage from '@/pages/ProjectPage'
 
 import TestimonialsSection from '@/components/ui/testimonial-v2'
 import FloatingWidgets from '@/components/FloatingWidgets'
+import Preloader from '@/components/Preloader'
 
 function Home() {
   return (
@@ -76,6 +77,7 @@ export default function App() {
 
   return (
     <div className="grain relative min-h-screen bg-[#F8F9FA] text-[#1A1D20]">
+      <Preloader />
       <Cursor />
       <FloatingWidgets />
       <Nav />
