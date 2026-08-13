@@ -6,6 +6,7 @@ import {
   useSpring,
   useTransform,
   useVelocity,
+  useScroll,
 } from 'framer-motion'
 
 import marbleImg from '@/assets/images/marble_texture_1786471487386.jpg'
@@ -53,6 +54,26 @@ const surfacesData = [
     img: onyxImg,
   },
 ]
+
+function MobileParallaxImage({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ['-15%', '15%'])
+
+  return (
+    <div ref={ref} className="col-span-3 mt-2 aspect-[3/2] w-full overflow-hidden md:hidden">
+      <motion.img
+        style={{ y, scale: 1.3 }}
+        src={src}
+        alt={alt}
+        className="h-full w-full object-cover will-change-transform"
+      />
+    </div>
+  )
+}
 
 export default function Surfaces() {
   const ref = useRef<HTMLDivElement>(null)
@@ -142,9 +163,7 @@ export default function Surfaces() {
               </span>
 
               {/* mobile thumb */}
-              <div className="col-span-3 mt-2 aspect-[3/2] w-full overflow-hidden md:hidden">
-                <img src={s.img} alt={s.title} className="h-full w-full object-cover" />
-              </div>
+              <MobileParallaxImage src={s.img} alt={s.title} />
             </div>
           ))}
         </div>

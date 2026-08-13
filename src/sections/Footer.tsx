@@ -9,7 +9,7 @@ export default function Footer() {
       </p>
 
       <motion.a
-        href="mailto:hello@lithos.stone"
+        href="#contact"
         data-hover
         className="group block select-none"
         initial={{ opacity: 0, y: 60 }}
