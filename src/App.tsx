@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 import Lenis from 'lenis'
+import { Toaster } from 'sonner'
+import ProgressBar from '@/components/ProgressBar'
 import Cursor from '@/sections/Cursor'
 import Nav from '@/sections/Nav'
 import Hero from '@/sections/Hero'
@@ -11,8 +13,11 @@ import Surfaces from '@/sections/Surfaces'
 import FAQ from '@/sections/FAQ'
 import Contact from '@/sections/Contact'
 import Footer from '@/sections/Footer'
+import Process from '@/sections/Process'
+import Education from '@/sections/Education'
 import WorksPage from '@/pages/WorksPage'
 import ProjectPage from '@/pages/ProjectPage'
+import BlogPage from '@/pages/BlogPage'
 
 import TestimonialsSection from '@/components/ui/testimonial-v2'
 import FloatingWidgets from '@/components/FloatingWidgets'
@@ -24,8 +29,10 @@ function Home() {
       <Marquee />
       <SplitScroll />
       <Services />
+      <Process />
       <Surfaces />
       <TestimonialsSection />
+      <Education />
       <FAQ />
       <Contact />
     </main>
@@ -76,6 +83,8 @@ export default function App() {
 
   return (
     <div className="grain relative min-h-screen bg-[#F8F9FA] text-[#1A1D20]">
+      <ProgressBar />
+      <Toaster position="bottom-right" toastOptions={{ className: 'rounded-none border border-[#0F172A]/20 bg-[#F8F9FA] text-[#1A1D20] font-mono2 uppercase tracking-widest text-xs' }} />
       <Cursor />
       <FloatingWidgets />
       <Nav />
@@ -83,6 +92,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/works" element={<WorksPage />} />
         <Route path="/works/:slug" element={<ProjectPage />} />
+        <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

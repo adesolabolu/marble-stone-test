@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, ArrowUp } from 'lucide-react'
 
 export default function FloatingWidgets() {
   const [show, setShow] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => {
@@ -13,6 +16,18 @@ export default function FloatingWidgets() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const handleQuoteClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname !== '/') {
+      e.preventDefault()
+      navigate('/')
+      setTimeout(() => {
+        const el = document.querySelector('#contact')
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+        else window.scrollTo(0, 0)
+      }, 450)
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -34,9 +49,10 @@ export default function FloatingWidgets() {
             <ArrowUp className="h-5 w-5" />
           </button>
 
-          {/* Chat CTA */}
+          {/* Quote CTA */}
           <a
-            href="mailto:hello@lithos.stone?subject=Free%20Quote%20Request"
+            href="#contact"
+            onClick={handleQuoteClick}
             data-hover
             className="group flex h-14 items-center gap-3 rounded-full bg-[#0F172A] px-6 text-[#F8F9FA] shadow-xl transition-all hover:scale-105 hover:bg-[#1A1D20]"
           >

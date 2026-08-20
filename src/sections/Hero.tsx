@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import heroBg from '@/assets/images/Technician_polishing_marble_floor_2K_202608201751 (1)-1.jpeg'
 
 const line1 = 'LITHOS'.split('')
 const line2 = 'STONE'.split('')
@@ -21,14 +22,19 @@ export default function Hero() {
 
   return (
     <section id="top" ref={ref} className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 pb-8 pt-28 md:px-10">
-      <motion.div style={{ y, opacity }} className="flex flex-1 flex-col justify-between">
+      <div className="absolute inset-0 z-0">
+        <img src={heroBg} alt="Professional stone restoration technician" className="h-full w-full object-cover object-center opacity-65 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA]/60 via-transparent to-[#F8F9FA]" />
+      </div>
+      
+      <motion.div style={{ y, opacity }} className="relative z-10 flex flex-1 flex-col justify-between">
         <motion.p
           className="font-mono2 font-bold text-[11px] uppercase tracking-[0.35em] text-[#1A1D20]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
         >
-          ( Artisans of natural stone — est. 2008 )
+          ( Artisans of natural stone )
         </motion.p>
 
         <div className="select-none py-2">

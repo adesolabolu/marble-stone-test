@@ -7,6 +7,7 @@ const links = [
   { label: 'Home', href: '#top' },
   { label: 'Works', href: '#works' },
   { label: 'Services', href: '#services' },
+  { label: 'Blog', href: '#education' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -59,9 +60,18 @@ export default function Nav() {
               href="tel:+15551234567"
               aria-label="Call Us"
               data-hover
-              className="flex items-center justify-center transition-opacity hover:opacity-70"
+              className="hidden items-center gap-2 font-mono2 text-xs font-medium uppercase tracking-widest transition-opacity hover:opacity-70 xl:flex"
             >
-              <Phone className="h-4 w-4 md:h-[18px] md:w-[18px]" />
+              <Phone className="h-4 w-4" />
+              <span>(555) 123-4567</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => go(e, '#contact')}
+              data-hover
+              className="hidden rounded-full bg-[#F8F9FA] px-6 py-2.5 font-mono2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0F172A] transition-transform hover:scale-105 md:block"
+            >
+              Get Free Estimate
             </a>
             <a
               href="https://instagram.com"
@@ -101,10 +111,10 @@ export default function Nav() {
         {open && (
           <motion.div
             className="fixed inset-0 z-[140] flex flex-col justify-between bg-[#F8F9FA] px-6 pb-10 pt-28"
-            initial={{ clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+            initial={{ opacity: 0, y: '-10%' }}
+            animate={{ opacity: 1, y: '0%' }}
+            exit={{ opacity: 0, y: '-10%' }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <nav className="flex flex-col">
               {links.map((l, i) => (
