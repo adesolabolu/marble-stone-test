@@ -9,8 +9,8 @@ export default function Education() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="mb-4 font-display text-[10vw] sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.85] tracking-tighter">
-              Care &amp; <span className="text-white/40">Maintenance</span> Hub
+            <h2 className="mb-4 font-display text-[12vw] sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.85] tracking-tighter max-w-full break-words">
+              Stone Care <span className="text-white/40">Hub</span>
             </h2>
             <p className="font-mono2 text-xs md:text-sm uppercase tracking-[0.1em] text-white/70">
               Protect your investment. Learn from the experts.
