@@ -60,10 +60,10 @@ export default function Nav() {
               href="tel:+15551234567"
               aria-label="Call Us"
               data-hover
-              className="hidden items-center gap-2 font-mono2 text-xs font-medium uppercase tracking-widest transition-opacity hover:opacity-70 xl:flex"
+              className="flex items-center justify-center transition-opacity hover:opacity-70"
             >
-              <Phone className="h-4 w-4" />
-              <span>(555) 123-4567</span>
+              <Phone className="h-4 w-4 md:h-[18px] md:w-[18px]" />
+              <span className="hidden xl:inline font-mono2 text-xs font-medium uppercase tracking-widest ml-2">(555) 123-4567</span>
             </a>
             <a
               href="#contact"

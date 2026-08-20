@@ -23,8 +23,8 @@ export default function Hero() {
   return (
     <section id="top" ref={ref} className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 pb-8 pt-28 md:px-10">
       <div className="absolute inset-0 z-0">
-        <img src={heroBg} alt="Professional stone restoration technician" className="h-full w-full object-cover object-center opacity-65 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA]/60 via-transparent to-[#F8F9FA]" />
+        <img src={heroBg} alt="Professional stone restoration technician" className="h-full w-full object-cover object-[65%_center] md:object-center opacity-50 md:opacity-65 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F9FA]/70 via-[#F8F9FA]/30 to-[#F8F9FA] md:from-[#F8F9FA]/60 md:via-transparent md:to-[#F8F9FA]" />
       </div>
       
       <motion.div style={{ y, opacity }} className="relative z-10 flex flex-1 flex-col justify-between">

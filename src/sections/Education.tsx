@@ -5,11 +5,11 @@ import { articles } from '@/data/blog'
 
 export default function Education() {
   return (
-    <section id="education" className="px-6 py-24 md:px-10 md:py-36 bg-[#1A1D20] text-[#F8F9FA]">
+    <section id="education" className="overflow-hidden px-6 py-24 md:px-10 md:py-36 bg-[#1A1D20] text-[#F8F9FA]">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-12 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="mb-4 font-display text-[12vw] sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.85] tracking-tighter max-w-full break-words">
+            <h2 className="mb-4 font-display text-[8.5vw] sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.9] tracking-tighter max-w-full break-words">
               Stone Care <span className="text-white/40">Hub</span>
             </h2>
             <p className="font-mono2 text-xs md:text-sm uppercase tracking-[0.1em] text-white/70">
@@ -18,12 +18,12 @@ export default function Education() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
           {articles.map((article, idx) => (
             <Link
               key={idx}
               to={`/blog/${article.slug}`}
-              className="group relative block aspect-square bg-white/5 p-8 transition-colors hover:bg-white/10"
+              className="group relative block min-h-[200px] md:aspect-square bg-white/5 p-5 md:p-8 transition-colors hover:bg-white/10"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -32,18 +32,18 @@ export default function Education() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="flex h-full flex-col justify-between"
               >
-                <div className="flex justify-between items-start">
-                  <span className="rounded-full border border-white/20 px-3 py-1 font-mono2 text-[10px] uppercase tracking-[0.2em] text-white/60">
+                <div className="flex justify-between items-start mb-4 md:mb-0">
+                  <span className="rounded-full border border-white/20 px-2.5 py-0.5 md:px-3 md:py-1 font-mono2 text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-white/60">
                     {article.category}
                   </span>
-                  <ArrowUpRight className="h-5 w-5 text-white/40 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" />
+                  <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5 text-white/40 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white" />
                 </div>
                 
                 <div>
-                  <h3 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight leading-tight md:text-3xl">
+                  <h3 className="mb-2 md:mb-4 font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-tight leading-snug">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-white/60 leading-relaxed transition-colors group-hover:text-white/80">
+                  <p className="text-xs md:text-sm text-white/60 leading-relaxed transition-colors group-hover:text-white/80 line-clamp-3 md:line-clamp-none">
                     {article.excerpt}
                   </p>
                 </div>

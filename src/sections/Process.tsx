@@ -1,95 +1,176 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { Shield, Sparkles, Activity, Layers, HeartHandshake, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
+    num: "01",
+    phase: "PHASE 01",
     title: "Assessment & Diagnostic Inspection",
-    desc: "A thorough evaluation of the stone's condition, identifying the stone type, structural integrity, and depth of damage."
+    desc: "A thorough microscopic and chemical evaluation of your stone's condition, identifying the exact geological classification, existing sealant integrity, and depth of surface etching or wear patterns.",
+    tag: "Non-Destructive Testing",
+    icon: Activity,
+    deliverables: ["Geological Stone ID", "Depth Calibration", "Custom Restoration Plan"]
   },
   {
+    num: "02",
+    phase: "PHASE 02",
     title: "Surrounding Area Protection",
-    desc: "Masking off walls, baseboards, cabinets, and wood trim to ensure your home remains pristine and protected from any splashes."
+    desc: "Masking and hermetically sealing adjoining walls, baseboards, custom cabinetry, hardwood transitions, and fixtures. We ensure your residence remains completely pristine throughout the engagement.",
+    tag: "Total Home Safeguard",
+    icon: Shield,
+    deliverables: ["Protective Poly-Shielding", "Zero-Residue Taping", "Air Containment"]
   },
   {
-    title: "Mechanical Honing & Grinding",
-    desc: "Removing the damaged surface layer using water-fed diamond abrasive pads. This is a dustless process that flattens and smooths the stone."
+    num: "03",
+    phase: "PHASE 03",
+    title: "Mechanical Diamond Honing",
+    desc: "Systematically removing damaged crystal layers using water-fed, industrial diamond abrasive pads. Our closed-loop wet grinding process is 100% dust-free and levels surface unevenness.",
+    tag: "100% Dustless Technology",
+    icon: Layers,
+    deliverables: ["Diamond-Resin Progression", "Etch & Scratch Eradication", "Liipage Flattening"]
   },
   {
-    title: "Polishing & Impregnating Sealer",
-    desc: "Achieving the desired finish (matte, satin, or high-gloss) followed by a deep penetrating sealer to prevent future absorption."
+    num: "04",
+    phase: "PHASE 04",
+    title: "Polishing & Nano-Impregnation",
+    desc: "Restoring the precise desired sheen—from museum matte and satin hone to mirror high-gloss—followed by deep-penetrating, breathable fluoropolymer sealers to repel future moisture and oils.",
+    tag: "Precision Micro-Finish",
+    icon: Sparkles,
+    deliverables: ["Custom Sheen Level", "Sub-Surface Sealant", "Hydrophobic Shield"]
   },
   {
-    title: "Post-Service Care Consultation",
-    desc: "We leave you with a clean floor and a customized maintenance plan, educating you on proper pH-neutral cleaning routines."
+    num: "05",
+    phase: "PHASE 05",
+    title: "Post-Service Care & Consultation",
+    desc: "We deliver a comprehensive handover inspection, complete with a customized care guide and pH-neutral maintenance recommendations to protect your architectural investment for generations.",
+    tag: "Generational Longevity",
+    icon: HeartHandshake,
+    deliverables: ["Client Handover Review", "pH-Neutral Care Protocol", "Maintenance Schedule"]
   }
 ]
 
 export default function Process() {
+  const targetRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start start', 'end end']
+  })
+
+  // Horizontal translation for cards track across vertical scroll range - reaching the final card cleanly
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
+
   return (
-    <section id="process" className="px-6 py-24 md:px-10 md:py-36 bg-[#F8F9FA] text-[#1A1D20]">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 md:mb-24 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between border-b border-[#1A1D20]/15 pb-10">
-          <div className="md:w-1/2">
-            <h2 className="mb-4 font-display text-[10vw] sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.85] tracking-tighter">
-              Restoration <span className="text-[#0F172A]/40">Process</span>
+    <section
+      id="process"
+      ref={targetRef}
+      className="relative h-[380vh] bg-[#F8F9FA] text-[#1A1D20]"
+    >
+      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden px-6 py-6 sm:px-10 sm:py-8 md:px-14 md:py-10">
+        {/* Top Header */}
+        <div className="mb-6 flex flex-col gap-3 border-b border-[#1A1D20]/15 pb-4 sm:flex-row sm:items-end sm:justify-between md:mb-8">
+          <div>
+            <h2 className="font-display text-2xl font-extrabold uppercase tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
+              Our <span className="text-[#0F172A]/40">Process</span>
             </h2>
-            <p className="font-mono2 text-xs md:text-sm uppercase tracking-[0.1em] text-[#1A1D20]/70">
-              Dustless. Methodical. Pristine.
-            </p>
           </div>
-          <div className="md:w-1/3 text-sm leading-relaxed opacity-80">
-            We understand the anxiety of having contractors in your home. Our 5-step workflow guarantees a completely dust-free environment with zero mess left behind.
-          </div>
+
+          <p className="hidden max-w-sm font-mono2 text-[11px] uppercase tracking-wider text-[#1A1D20]/70 md:block">
+            Dustless. Precision Diamond Honing. Pristine Execution.
+          </p>
         </div>
 
-        <div className="relative mx-auto mt-16 max-w-5xl md:mt-24">
-          {/* Main vertical line */}
-          <div className="absolute bottom-0 left-[34px] top-0 w-2 rounded-full bg-[#1A1D20]/5 md:left-1/2 md:-translate-x-1/2" />
+        {/* Horizontal Moving Cards Track */}
+        <div className="relative my-auto overflow-visible py-2">
+          <motion.div
+            style={{ x }}
+            className="flex items-center gap-5 sm:gap-6 md:gap-8 will-change-transform"
+          >
+            {steps.map((step, idx) => {
+              const Icon = step.icon
+              return (
+                <div
+                  key={idx}
+                  className="group relative flex h-[330px] w-[75vw] sm:h-[360px] sm:w-[390px] md:h-[380px] md:w-[430px] flex-shrink-0 flex-col justify-between border border-[#1A1D20]/15 bg-white p-5 sm:p-6 md:p-7 shadow-[0_8px_24px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#1A1D20]/40"
+                >
+                  {/* Giant numeral in background watermark */}
+                  <span className="pointer-events-none absolute bottom-2 right-4 select-none font-mono2 text-[5.5rem] font-extrabold leading-none text-[#1A1D20]/5 sm:text-[6.5rem] md:text-[7.5rem]">
+                    {step.num}
+                  </span>
 
-          <div className="flex flex-col gap-12 md:gap-8">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className={`relative flex flex-col md:flex-row md:items-center py-4 ${
-                  idx % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Content Side */}
-                <div className={`flex flex-1 pl-24 pt-4 md:w-1/2 md:p-0 ${idx % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:justify-end'}`}>
-                  <div
-                    className={`flex flex-col ${
-                      idx % 2 === 0 ? 'md:items-start md:text-left' : 'md:items-end md:text-right'
-                    }`}
-                  >
-                    <span className="mb-3 font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]/40">
-                      Phase 0{idx + 1}
-                    </span>
-                    <h3 className="mb-4 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl md:text-3xl">
+                  {/* Card Header */}
+                  <div>
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="rounded-full border border-[#1A1D20]/20 px-2.5 py-0.5 font-mono2 text-[9px] uppercase tracking-[0.2em] text-[#1A1D20]">
+                        {step.phase}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono2 text-[9px] uppercase tracking-widest text-[#1A1D20]/50">
+                          {step.tag}
+                        </span>
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1A1D20] text-white">
+                          <Icon className="h-3 w-3" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <h3 className="font-display text-lg font-bold uppercase tracking-tight text-[#1A1D20] sm:text-xl md:text-2xl leading-snug">
                       {step.title}
                     </h3>
-                    <p className="max-w-sm text-sm leading-relaxed text-[#1A1D20]/70">
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="relative z-10 my-auto py-2">
+                    <p className="text-xs leading-relaxed text-[#1A1D20]/75 sm:text-[13px] md:text-sm">
                       {step.desc}
                     </p>
                   </div>
-                </div>
 
-                {/* Center Node */}
-                <div className="absolute left-[8px] top-4 flex h-[60px] w-[60px] md:h-20 md:w-20 items-center justify-center rounded-full border-[6px] border-[#F8F9FA] bg-[#1A1D20] text-[#F8F9FA] shadow-lg shadow-[#1A1D20]/10 md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-                  <span className="font-mono2 text-lg md:text-xl font-bold leading-none">
-                    0{idx + 1}
-                  </span>
+                  {/* Card Footer Deliverables */}
+                  <div className="relative z-10 border-t border-[#1A1D20]/10 pt-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {step.deliverables.map((item, dIdx) => (
+                        <span
+                          key={dIdx}
+                          className="font-mono2 text-[8.5px] uppercase tracking-wider text-[#1A1D20]/60 bg-[#F8F9FA] px-2 py-0.5"
+                        >
+                          ✓ {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
+              )
+            })}
 
-                {/* Empty Side for alignment */}
-                <div className="hidden md:block md:w-1/2" />
-              </motion.div>
-            ))}
-          </div>
+            {/* Final Outcome Card */}
+            <div className="relative flex h-[330px] w-[72vw] sm:h-[360px] sm:w-[320px] md:h-[380px] md:w-[350px] flex-shrink-0 flex-col justify-between bg-[#1A1D20] p-5 text-[#F8F9FA] sm:p-6 md:p-7 shadow-xl">
+              <div>
+                <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-[#F8F9FA]/60">
+                  ASSURANCE
+                </span>
+                <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl md:text-3xl text-white">
+                  Zero Dust. <br />
+                  Flawless Stone.
+                </h3>
+              </div>
+
+              <p className="text-xs text-[#F8F9FA]/70 leading-relaxed sm:text-[13px]">
+                Ready to restore your marble, granite, or terrazzo surfaces to their original factory luster?
+              </p>
+
+              <a
+                href="#contact"
+                className="group flex items-center justify-between border border-white/20 bg-white/10 px-4 py-3 font-mono2 text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white hover:text-[#1A1D20]"
+              >
+                <span>Request Assessment</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
+
