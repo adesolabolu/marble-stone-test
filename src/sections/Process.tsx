@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Shield, Sparkles, Activity, Layers, HeartHandshake, ArrowRight } from 'lucide-react'
+import { motion, useScroll } from 'framer-motion'
+import { Shield, Sparkles, Activity, Layers, HeartHandshake } from 'lucide-react'
 
 const steps = [
   {
@@ -51,123 +51,97 @@ const steps = [
 ]
 
 export default function Process() {
-  const targetRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ['start start', 'end end']
+    target: containerRef,
+    offset: ['start center', 'end center']
   })
 
-  // Horizontal translation for cards track across vertical scroll range - reaching the final card cleanly
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
-
   return (
-    <section
-      id="process"
-      ref={targetRef}
-      className="relative h-[380vh] bg-[#F8F9FA] text-[#1A1D20]"
-    >
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden px-6 py-6 sm:px-10 sm:py-8 md:px-14 md:py-10">
-        {/* Top Header */}
-        <div className="mb-6 flex flex-col gap-3 border-b border-[#1A1D20]/15 pb-4 sm:flex-row sm:items-end sm:justify-between md:mb-8">
+    <section id="process" className="overflow-hidden px-6 py-24 md:px-10 md:py-36 bg-[#F8F9FA] text-[#1A1D20]">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16 md:mb-24 flex flex-col gap-3 border-b border-[#1A1D20]/15 pb-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-display text-2xl font-extrabold uppercase tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase leading-[0.9] tracking-tighter break-words">
               Our <span className="text-[#0F172A]/40">Process</span>
             </h2>
           </div>
-
-          <p className="hidden max-w-sm font-mono2 text-[11px] uppercase tracking-wider text-[#1A1D20]/70 md:block">
+          <p className="max-w-sm font-mono2 text-[11px] uppercase tracking-wider text-[#1A1D20]/70">
             Dustless. Precision Diamond Honing. Pristine Execution.
           </p>
         </div>
 
-        {/* Horizontal Moving Cards Track */}
-        <div className="relative my-auto overflow-visible py-2">
+        <div ref={containerRef} className="relative mx-auto mt-16 max-w-5xl md:mt-24">
+          {/* Background Line */}
+          <div className="absolute bottom-0 left-[28px] top-0 w-1 rounded-full bg-[#1A1D20]/10 md:left-1/2 md:-translate-x-1/2" />
+          
+          {/* Animated Progress Line */}
           <motion.div
-            style={{ x }}
-            className="flex items-center gap-5 sm:gap-6 md:gap-8 will-change-transform"
-          >
+            style={{ scaleY: scrollYProgress }}
+            className="absolute bottom-0 left-[28px] top-0 w-1 origin-top rounded-full bg-[#1A1D20] md:left-1/2 md:-translate-x-1/2"
+          />
+
+          <div className="flex flex-col gap-16 md:gap-24">
             {steps.map((step, idx) => {
               const Icon = step.icon
               return (
-                <div
+                <motion.div
                   key={idx}
-                  className="group relative flex h-[330px] w-[75vw] sm:h-[360px] sm:w-[390px] md:h-[380px] md:w-[430px] flex-shrink-0 flex-col justify-between border border-[#1A1D20]/15 bg-white p-5 sm:p-6 md:p-7 shadow-[0_8px_24px_rgba(0,0,0,0.03)] transition-all duration-300 hover:border-[#1A1D20]/40"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className={`relative flex flex-col md:flex-row md:items-center ${
+                    idx % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
                 >
-                  {/* Giant numeral in background watermark */}
-                  <span className="pointer-events-none absolute bottom-2 right-4 select-none font-mono2 text-[5.5rem] font-extrabold leading-none text-[#1A1D20]/5 sm:text-[6.5rem] md:text-[7.5rem]">
-                    {step.num}
-                  </span>
-
-                  {/* Card Header */}
-                  <div>
-                    <div className="mb-3 flex items-center justify-between">
-                      <span className="rounded-full border border-[#1A1D20]/20 px-2.5 py-0.5 font-mono2 text-[9px] uppercase tracking-[0.2em] text-[#1A1D20]">
-                        {step.phase}
-                      </span>
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono2 text-[9px] uppercase tracking-widest text-[#1A1D20]/50">
+                  {/* Content Side */}
+                  <div className={`flex flex-1 pl-20 md:w-1/2 md:p-0 ${idx % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:justify-end'}`}>
+                    <div
+                      className={`flex w-full flex-col ${
+                        idx % 2 === 0 ? 'md:items-start md:text-left' : 'md:items-end md:text-right'
+                      }`}
+                    >
+                      <div className={`mb-4 flex items-center gap-3 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                        <span className="rounded-full border border-[#1A1D20]/20 px-3 py-1 font-mono2 text-[10px] uppercase tracking-[0.2em] text-[#1A1D20]">
+                          {step.phase}
+                        </span>
+                        <span className="font-mono2 text-[10px] uppercase tracking-widest text-[#1A1D20]/50">
                           {step.tag}
                         </span>
-                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1A1D20] text-white">
-                          <Icon className="h-3 w-3" />
-                        </div>
+                      </div>
+
+                      <h3 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl md:text-4xl">
+                        {step.title}
+                      </h3>
+                      <p className="mb-6 text-sm leading-relaxed text-[#1A1D20]/75 md:text-base">
+                        {step.desc}
+                      </p>
+
+                      <div className={`flex flex-wrap gap-2 ${idx % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                        {step.deliverables.map((item, dIdx) => (
+                          <span
+                            key={dIdx}
+                            className="font-mono2 text-[10px] uppercase tracking-wider text-[#1A1D20]/60 bg-[#1A1D20]/5 px-2.5 py-1"
+                          >
+                            ✓ {item}
+                          </span>
+                        ))}
                       </div>
                     </div>
-
-                    <h3 className="font-display text-lg font-bold uppercase tracking-tight text-[#1A1D20] sm:text-xl md:text-2xl leading-snug">
-                      {step.title}
-                    </h3>
                   </div>
 
-                  {/* Card Body */}
-                  <div className="relative z-10 my-auto py-2">
-                    <p className="text-xs leading-relaxed text-[#1A1D20]/75 sm:text-[13px] md:text-sm">
-                      {step.desc}
-                    </p>
+                  {/* Center Node */}
+                  <div className="absolute left-[8px] top-0 flex h-11 w-11 md:h-14 md:w-14 items-center justify-center rounded-full border-[4px] border-[#F8F9FA] bg-[#1A1D20] text-[#F8F9FA] shadow-lg shadow-[#1A1D20]/10 md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+                    <Icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
 
-                  {/* Card Footer Deliverables */}
-                  <div className="relative z-10 border-t border-[#1A1D20]/10 pt-3">
-                    <div className="flex flex-wrap gap-1.5">
-                      {step.deliverables.map((item, dIdx) => (
-                        <span
-                          key={dIdx}
-                          className="font-mono2 text-[8.5px] uppercase tracking-wider text-[#1A1D20]/60 bg-[#F8F9FA] px-2 py-0.5"
-                        >
-                          ✓ {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                  {/* Empty Side for alignment */}
+                  <div className="hidden md:block md:w-1/2" />
+                </motion.div>
               )
             })}
-
-            {/* Final Outcome Card */}
-            <div className="relative flex h-[330px] w-[72vw] sm:h-[360px] sm:w-[320px] md:h-[380px] md:w-[350px] flex-shrink-0 flex-col justify-between bg-[#1A1D20] p-5 text-[#F8F9FA] sm:p-6 md:p-7 shadow-xl">
-              <div>
-                <span className="font-mono2 text-[9px] uppercase tracking-[0.25em] text-[#F8F9FA]/60">
-                  ASSURANCE
-                </span>
-                <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl md:text-3xl text-white">
-                  Zero Dust. <br />
-                  Flawless Stone.
-                </h3>
-              </div>
-
-              <p className="text-xs text-[#F8F9FA]/70 leading-relaxed sm:text-[13px]">
-                Ready to restore your marble, granite, or terrazzo surfaces to their original factory luster?
-              </p>
-
-              <a
-                href="#contact"
-                className="group flex items-center justify-between border border-white/20 bg-white/10 px-4 py-3 font-mono2 text-[11px] uppercase tracking-widest text-white transition-all hover:bg-white hover:text-[#1A1D20]"
-              >
-                <span>Request Assessment</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
