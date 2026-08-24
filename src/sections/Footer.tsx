@@ -10,6 +10,7 @@ export default function Footer() {
 
       <motion.a
         href="#contact"
+        data-umami-event="marble-stone - cta-click"
         data-hover
         className="group block select-none"
         initial={{ opacity: 0, y: 60 }}
@@ -25,18 +26,14 @@ export default function Footer() {
         </span>
       </motion.a>
 
-      <div className="mt-20 grid gap-10 border-t border-[#1A1D20]/10 pt-10 md:grid-cols-4">
+      <div className="mt-20 grid gap-10 border-t border-[#1A1D20]/10 pt-10 md:grid-cols-3">
         <div>
           <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">New York</p>
           <p className="mt-2 text-sm text-[#1A1D20]">120 Marble Way<br />New York, NY 10012</p>
         </div>
         <div>
-          <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">London</p>
-          <p className="mt-2 text-sm text-[#1A1D20]">45 Artisan Close<br />London, W1D 4EB</p>
-        </div>
-        <div>
           <p className="font-mono2 text-[10px] uppercase tracking-[0.25em] text-[#1A1D20]">Contact</p>
-          <a href="mailto:hello@lithos.stone" data-hover className="link-sweep mt-2 inline-block text-sm text-[#1A1D20]">
+          <a href="mailto:hello@lithos.stone" data-umami-event="marble-stone - quick-contact-click" data-hover className="link-sweep mt-2 inline-block text-sm text-[#1A1D20]">
             hello@lithos.stone
           </a>
         </div>
@@ -48,6 +45,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
+              data-umami-event="marble-stone - quick-contact-click"
               data-hover
               className="transition-transform duration-300 hover:scale-110 hover:text-[#0F172A]"
             >
@@ -58,6 +56,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
+              data-umami-event="marble-stone - quick-contact-click"
               data-hover
               className="transition-transform duration-300 hover:scale-110 hover:text-[#0F172A]"
             >
