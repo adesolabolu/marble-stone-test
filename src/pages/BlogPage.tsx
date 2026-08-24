@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams, Link } from 'react-router'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import { articles } from '@/data/blog'
 
 export default function BlogPage() {
@@ -15,6 +16,10 @@ export default function BlogPage() {
   if (!article) {
     return (
       <div className="flex min-h-[70vh] items-center justify-center">
+        <Helmet>
+          <title>Article Not Found | LITHOS</title>
+          <meta name="robots" content="noindex, follow" />
+        </Helmet>
         <div className="text-center">
           <h1 className="mb-4 font-display text-4xl font-bold uppercase">Article Not Found</h1>
           <Link to="/" className="link-sweep font-mono2 text-xs uppercase tracking-widest text-[#1A1D20]">
@@ -32,6 +37,13 @@ export default function BlogPage() {
       exit={{ opacity: 0 }}
       className="px-6 py-32 md:px-10 md:py-48"
     >
+      <Helmet>
+        <title>{`${article.title} | LITHOS Blog`}</title>
+        <meta name="description" content={article.excerpt} />
+        <meta property="og:title" content={`${article.title} | LITHOS`} />
+        <meta property="og:description" content={article.excerpt} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <div className="mx-auto max-w-3xl">
         <Link 
           to="/"
