@@ -59,6 +59,7 @@ export default function Nav() {
             <a
               href="tel:+15551234567"
               aria-label="Call Us"
+              data-umami-event="marble-stone - quick-contact-click"
               data-hover
               className="flex items-center justify-center transition-opacity hover:opacity-70"
             >
@@ -68,6 +69,7 @@ export default function Nav() {
             <a
               href="#contact"
               onClick={(e) => go(e, '#contact')}
+              data-umami-event="marble-stone - cta-click"
               data-hover
               className="hidden rounded-full bg-[#F8F9FA] px-6 py-2.5 font-mono2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0F172A] transition-transform hover:scale-105 md:block"
             >
@@ -78,6 +80,7 @@ export default function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
+              data-umami-event="marble-stone - quick-contact-click"
               data-hover
               className="flex items-center justify-center transition-opacity hover:opacity-70"
             >

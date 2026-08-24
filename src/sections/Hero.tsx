@@ -91,12 +91,14 @@ export default function Hero() {
             >
               <a 
                 href="#contact" 
+                data-umami-event="marble-stone - cta-click"
                 className="inline-flex items-center justify-center bg-[#1A1D20] px-6 py-4 font-mono2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#F8F9FA] transition-colors hover:bg-[#0F172A]"
               >
                 Get a free quote
               </a>
               <a 
                 href="#services" 
+                data-umami-event="marble-stone - cta-click"
                 className="inline-flex items-center justify-center border border-[#1A1D20]/20 px-6 py-4 font-mono2 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#1A1D20] transition-colors hover:border-[#1A1D20]"
               >
                 Explore services

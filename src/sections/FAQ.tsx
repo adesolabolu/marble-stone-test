@@ -46,6 +46,7 @@ export default function FAQ() {
               <div key={i} className="border-b border-[#1A1D20]/20">
                 <button
                   onClick={() => toggle(i)}
+                  data-umami-event="marble-stone - faq-expand"
                   className="flex w-full items-center justify-between py-6 text-left font-mono2 text-xs uppercase tracking-[0.1em] text-[#1A1D20] transition-colors hover:text-[#0F172A] md:text-sm"
                 >
                   {faq.question}

@@ -147,6 +147,7 @@ export default function Surfaces() {
             <div
               key={s.title}
               onMouseEnter={() => setActive(i)}
+              data-umami-event="marble-stone - portfolio-item-click"
               className="group relative grid grid-cols-[auto_1fr_auto] items-center gap-4 overflow-hidden border-b border-[#1A1D20]/15 py-6 md:grid-cols-[3rem_1fr_auto_5rem] md:gap-8 md:py-9"
             >
               <span className="font-mono2 text-[11px] tracking-[0.2em] text-[#1A1D20] transition-colors duration-500 group-hover:text-[#0F172A]">

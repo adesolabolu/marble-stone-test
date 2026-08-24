@@ -53,6 +53,7 @@ export default function FloatingWidgets() {
           <a
             href="#contact"
             onClick={handleQuoteClick}
+            data-umami-event="marble-stone - cta-click"
             data-hover
             className="group flex h-14 items-center gap-3 rounded-full bg-[#0F172A] px-6 text-[#F8F9FA] shadow-xl transition-all hover:scale-105 hover:bg-[#1A1D20]"
           >
